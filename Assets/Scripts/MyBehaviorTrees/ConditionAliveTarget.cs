@@ -1,19 +1,10 @@
-/*using UnityEngine;
+using UnityEngine;
 using BehaviorDesigner.Runtime;
 using BehaviorDesigner.Runtime.Tasks;
 
-public class ConditionIsTargetAlive : Conditional
+public class ConditionAliveTarget : Conditional
 {
-
-
-
-	public SharedTransform target;
-
-        
-    private TaskStatus executionStatus = TaskStatus.Inactive;
-    private bool checkConditionalTask = target.Value;
-    private bool conditionalTaskFailed = false;
-
+public SharedTransform target;
 	public override void OnStart()
 	{
 		
@@ -39,5 +30,5 @@ public class ConditionIsTargetAlive : Conditional
                 return false;
             }
             return executionStatus == TaskStatus.Inactive || executionStatus == TaskStatus.Running;
-    }
-}*/
+    }*/
+}

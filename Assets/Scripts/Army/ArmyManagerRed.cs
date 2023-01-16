@@ -11,7 +11,7 @@ using BehaviorDesigner.Runtime.Tasks;
 
 public class ArmyManagerRed : ArmyManager
 {
-	public SharedTransform tar;
+	public SharedTransform target;
 	public SharedTransform cible;
 	public SharedFloat minRadius;
 	public SharedFloat maxRadius;
@@ -33,20 +33,14 @@ public class ArmyManagerRed : ArmyManager
 		
 		RefreshHudDisplay(); //pour une derni�re mise � jour en cas de victoire
 	}
-	public SharedTransform target (GameObject go)
-	{
-		tar.Value = m_ArmyElement.ArmyManager.GetRandomEnemy<Turret>(transform.position,minRadius.Value,maxRadius.Value)?.transform;
-		cible=tar.Value;
-		int i=0;
-		while(i<4)
-		{
-			if(!tar.Value)
-			{
-				tar.Value = m_ArmyElement.ArmyManager.GetRandomEnemy<Turret>(transform.position,minRadius.Value,maxRadius.Value)?.transform;
-				cible=tar.Value;
-				i=i+1;
-			}
+
+	public void Update(){
+		if(target.value != null)
+		{	
+			target.Value = m_ArmyElement.ArmyManager.GetRandomEnemy<Turret>(transform.position,minRadius.Value,maxRadius.Value)?.transform;
+			cible=target.Value;
 		}
-		return cible;
+
 	}
+
 }
