@@ -5,9 +5,18 @@ using UnityEngine.UI;
 using TMPro;
 using System.Linq;
 using UnityEngine.AI;
+using UnityEngine;
+using BehaviorDesigner.Runtime;
+using BehaviorDesigner.Runtime.Tasks;
 
 public class ArmyManagerRed : ArmyManager
 {
+	public SharedTransform tar;
+	public SharedTransform cible;
+	public SharedFloat minRadius;
+	public SharedFloat maxRadius;
+	IArmyElement m_ArmyElement;
+	
 	public override void ArmyElementHasBeenKilled(GameObject go)
 	{
 		base.ArmyElementHasBeenKilled(go);
@@ -24,16 +33,20 @@ public class ArmyManagerRed : ArmyManager
 		
 		RefreshHudDisplay(); //pour une derni�re mise � jour en cas de victoire
 	}
-	/*public  ChooseTarget target (GameObject go)
+	public SharedTransform target (GameObject go)
 	{
-		target.Value = m_ArmyElement.ArmyManager.GetRandomEnemy<Turret>(transform.position,minRadius.Value,maxRadius.Value)?.transform;
-		while(turret.nTurrets !=0)
+		tar.Value = m_ArmyElement.ArmyManager.GetRandomEnemy<Turret>(transform.position,minRadius.Value,maxRadius.Value)?.transform;
+		cible=tar.Value;
+		int i=0;
+		while(i<4)
 		{
-			if(turret.health == 0)
+			if(!tar.Value)
 			{
-				target.Value = m_ArmyElement.ArmyManager.GetRandomEnemy<Turret>(transform.position,minRadius.Value,maxRadius.Value)?.transform;
+				tar.Value = m_ArmyElement.ArmyManager.GetRandomEnemy<Turret>(transform.position,minRadius.Value,maxRadius.Value)?.transform;
+				cible=tar.Value;
+				i=i+1;
 			}
 		}
-		return target.Value;
-	}*/
+		return cible;
+	}
 }
