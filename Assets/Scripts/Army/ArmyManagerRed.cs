@@ -22,7 +22,18 @@ public class ArmyManagerRed : ArmyManager
         ComputeStatistics(ref nDrones, ref nTurrets, ref health);
 		GUIUtility.systemCopyBuffer = "1\t" + ((int)Timer.Value).ToString() + "\t"+nDrones.ToString()+"\t"+nTurrets.ToString()+"\t"+health.ToString();
 		
-		RefreshHudDisplay(); //pour une dernière mise à jour en cas de victoire
+		RefreshHudDisplay(); //pour une derniï¿½re mise ï¿½ jour en cas de victoire
 	}
-
+	/*public  ChooseTarget target (GameObject go)
+	{
+		target.Value = m_ArmyElement.ArmyManager.GetRandomEnemy<Turret>(transform.position,minRadius.Value,maxRadius.Value)?.transform;
+		while(turret.nTurrets !=0)
+		{
+			if(turret.health == 0)
+			{
+				target.Value = m_ArmyElement.ArmyManager.GetRandomEnemy<Turret>(transform.position,minRadius.Value,maxRadius.Value)?.transform;
+			}
+		}
+		return target.Value;
+	}*/
 }
