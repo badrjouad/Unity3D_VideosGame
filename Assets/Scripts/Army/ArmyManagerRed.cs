@@ -35,7 +35,7 @@ public class ArmyManagerRed : ArmyManager
 	}
 
 	public void Update(){
-		if(target.value != null)
+		if(target.Value != null)
 		{	
 			target.Value = m_ArmyElement.ArmyManager.GetRandomEnemy<Turret>(transform.position,minRadius.Value,maxRadius.Value)?.transform;
 			cible=target.Value;
