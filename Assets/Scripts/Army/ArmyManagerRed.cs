@@ -5,18 +5,10 @@ using UnityEngine.UI;
 using TMPro;
 using System.Linq;
 using UnityEngine.AI;
-using UnityEngine;
-using BehaviorDesigner.Runtime;
-using BehaviorDesigner.Runtime.Tasks;
 
 public class ArmyManagerRed : ArmyManager
 {
-	public SharedTransform tar;
-	public SharedTransform cible;
-	public SharedFloat minRadius;
-	public SharedFloat maxRadius;
-	IArmyElement m_ArmyElement;
-	
+
 	public override void ArmyElementHasBeenKilled(GameObject go)
 	{
 		base.ArmyElementHasBeenKilled(go);
@@ -33,20 +25,11 @@ public class ArmyManagerRed : ArmyManager
 		
 		RefreshHudDisplay(); //pour une derni�re mise � jour en cas de victoire
 	}
-	public SharedTransform target (GameObject go)
-	{
-		tar.Value = m_ArmyElement.ArmyManager.GetRandomEnemy<Turret>(transform.position,minRadius.Value,maxRadius.Value)?.transform;
-		cible=tar.Value;
-		int i=0;
-		while(i<4)
-		{
-			if(!tar.Value)
-			{
-				tar.Value = m_ArmyElement.ArmyManager.GetRandomEnemy<Turret>(transform.position,minRadius.Value,maxRadius.Value)?.transform;
-				cible=tar.Value;
-				i=i+1;
-			}
-		}
-		return cible;
-	}
+
+	public T GetElement<T>() where T : ArmyElement
+    {
+        var enemies = GetAllEnemiesOfType<T>(false);
+        return enemies.FirstOrDefault();
+    }
+
 }
