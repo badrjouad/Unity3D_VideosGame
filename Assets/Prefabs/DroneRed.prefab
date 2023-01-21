@@ -1303,7 +1303,7 @@ MonoBehaviour:
   resetValuesOnRestart: 0
   externalBehavior: {fileID: 11400000, guid: 2909454c8f3227149ab42dc9c7704053, type: 2}
   mBehaviorSource:
-    behaviorName: DroneBehavior
+    behaviorName: DroneBehaviorBadr
     behaviorDescription: 
     mTaskData:
       types: []

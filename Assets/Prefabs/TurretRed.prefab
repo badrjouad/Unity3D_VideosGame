@@ -290,7 +290,7 @@ MonoBehaviour:
   resetValuesOnRestart: 0
   externalBehavior: {fileID: 11400000, guid: 1b4a13ffb1a4e2941baf8c9b2cf3b661, type: 2}
   mBehaviorSource:
-    behaviorName: TurretBehavior
+    behaviorName: TurretBehaviorBadr
     behaviorDescription: 
     mTaskData:
       types: []
